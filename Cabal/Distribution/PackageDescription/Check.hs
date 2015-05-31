@@ -824,7 +824,7 @@ checkPaths pkg =
   [ PackageBuildWarning $
          quote (kind ++ ": " ++ path)
       ++ " is a relative path that will make ghc-pkg unhappy. "
-      ++ "Please check your ~/.cabal/config, local cabal.config,"
+      ++ "Please check your ~/.cabal/config, local cabal.config, "
       ++ "and project's .cabal files."
   | (path, kind) <- absPaths
   , isRelative path ]
