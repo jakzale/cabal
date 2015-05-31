@@ -875,11 +875,14 @@ checkPaths pkg =
            ++ [ (path, "install-includes") | path <- installIncludes bi ]
            ++ [ (path, "hs-source-dirs")   | path <- hsSourceDirs    bi ]
          | bi <- allBuildInfo pkg ]
+    -- paths that need to be absolute
+    extPaths = concat
+      [    [ (path, "extra-lib-dirs")   | path <- extraLibDirs    bi ]
+      | bi <- allBuildInfo pkg ]
     -- paths that are allowed to be absolute
     absPaths = concat
       [    [ (path, "includes")         | path <- includes        bi ]
         ++ [ (path, "include-dirs")     | path <- includeDirs     bi ]
-        ++ [ (path, "extra-lib-dirs")   | path <- extraLibDirs    bi ]
       | bi <- allBuildInfo pkg ]
 
 --TODO: check sets of paths that would be interpreted differently between Unix
