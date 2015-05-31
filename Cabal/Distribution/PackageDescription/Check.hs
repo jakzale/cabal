@@ -826,7 +826,7 @@ checkPaths pkg =
       ++ " is a relative path that will make ghc-pkg unhappy. "
       ++ "Please check your ~/.cabal/config, local cabal.config, "
       ++ "and project's .cabal files."
-  | (path, kind) <- absPaths
+  | (path, kind) <- extPaths
   , isRelative path ]
   ++
   [ PackageDistInexcusable $
