@@ -840,7 +840,7 @@ checkPaths pkg =
       ++ "directory is configurable by the user (or package manager). In "
       ++ "addition the layout of the 'dist' directory is subject to change "
       ++ "in future versions of Cabal."
-  | (path, kind) <- relPaths ++ absPaths
+  | (path, kind) <- relPaths ++ absPaths ++ extPaths
   , isInsideDist path ]
   ++
   [ PackageDistInexcusable $
